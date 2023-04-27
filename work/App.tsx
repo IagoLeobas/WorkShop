@@ -1,7 +1,11 @@
-import {Text} from 'react-native';
+import { Fragment } from 'react';
+import { Text } from 'react-native';
 
 export default function App() {
   return (
-    <Text>Olá mundo!</Text>
+    <Fragment>
+      <Text>Olá mundo!</Text>
+      <Text>Bom dia</Text>
+    </Fragment>
   );
 }
