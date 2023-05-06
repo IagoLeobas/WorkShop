@@ -54,13 +54,14 @@ const styled = StyleSheet.create({
   input: {
     flex: 1,
     height: 56,
-    width: 317,
     borderRadius: 4,
     backgroundColor: '#1F1E25',
     color: '#FDFCFE',
     alignItems: 'center',
     paddingHorizontal: 16,
     fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '400',
   },
 
   containerInput: {
