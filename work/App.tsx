@@ -83,5 +83,7 @@ const styled = StyleSheet.create({
   labelButton: {
     color: '#fff',
     fontSize: 24,
+    lineHeight: 24,
+    fontWeight: '400',
   },
 })
