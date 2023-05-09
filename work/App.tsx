@@ -5,16 +5,23 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState('');
   const [members, setMembers] = useState<string[]>([]);
 
-  function handleSubmit() {
-    setMembers(parms => [name, ...parms]);
+  const usuarioExistente = members.find(u => u === name);
 
-    setName('');
+  function handleSubmit() {
+    if (usuarioExistente){
+      Alert.alert("Usuário existente", "O usuário já existe na lista!");
+    }else{
+      setMembers(parms => [name, ...parms]);
+
+      setName('');
+    }
   }
 
   function onMemberDestroi(memberDetroi: string) {
@@ -30,7 +37,7 @@ export default function App() {
         Nome do evento
       </Text>
       <Text key={2} style={styled.subTitle}>
-        Sexta, 4 de Novembro de 2022.
+        Sexta, 9 de Maio de 2023.
       </Text>
 
       <View style={styled.containerInput}>
