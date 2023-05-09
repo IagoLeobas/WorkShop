@@ -12,7 +12,7 @@ export default function App() {
   const [name, setName] = useState('');
   const [members, setMembers] = useState<string[]>([]);
 
-  const usuarioExistente = members.find(u => u === name);
+  const usuarioExistente = members.find(m => m === name);
 
   function handleSubmit() {
     if (usuarioExistente) {
@@ -29,18 +29,16 @@ export default function App() {
   }
 
   function handleRemoveMember(member: string) {
-    const updatedItems = members.filter(item => item !== member);
+    const updatedItems = members.filter(m => m !== member);
     Alert.alert(
-      'Confirmação de Exclusão',
-      'Deseja realmente remover o usuário?',
+      'Remover',
+      'Remover o ' + member + '?',
       [
         {
-          text: 'Cancelar',
-          style: 'cancel',
+          text: 'Não',
         },
         {
-          text: 'Excluir',
-          style: 'destructive',
+          text: 'Sim',
           onPress: () => {
 
             setMembers(updatedItems);
