@@ -12,14 +12,16 @@ export default function App() {
   const [name, setName] = useState('');
   const [members, setMembers] = useState<string[]>([]);
 
+  /* Função 'find' procura o primeiro 'member' da lista trazendo 
+  aquele que é estritamente igual ao informado no input de nome */
   const duplicateMember = members.find(m => m === name);
 
+  // Salva Membro
   function handleSubmit() {
     if (name === '') {
       Alert.alert("Nome inválido", "O nome do usuário deve ser informado!");
-    } else if (duplicateMember) {
+    } else if (duplicateMember) { //verifica duplicidade de membros
       Alert.alert("Opsss!", "Esse usuário já existe na lista");
-
     } else {
       setMembers(parms => [name, ...parms]);
 
@@ -27,11 +29,9 @@ export default function App() {
     }
   }
 
-  function onMemberDestroi(memberDetroi: string) {
-
-  }
-
+  // Remove Membro
   function handleRemoveMember(member: string) {
+    // a variável recebe um novo array retirando o member passado
     const updatedItems = members.filter(m => m !== member);
     Alert.alert(
       'Remover',
