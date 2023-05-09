@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   View,
@@ -15,9 +15,9 @@ export default function App() {
   const usuarioExistente = members.find(u => u === name);
 
   function handleSubmit() {
-    if (usuarioExistente){
-      Alert.alert("Usuário existente", "O usuário já existe na lista!");
-    }else{
+    if (usuarioExistente) {
+      Alert.alert("Opsss! Usuário já cadastrado", "Esse usuário já existe na lista!");
+    } else {
       setMembers(parms => [name, ...parms]);
 
       setName('');
@@ -29,6 +29,26 @@ export default function App() {
   }
 
   function handleRemoveMember(member: string) {
+    const updatedItems = members.filter(item => item !== member);
+    Alert.alert(
+      'Confirmação de Exclusão',
+      'Deseja realmente remover o usuário?',
+      [
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        },
+        {
+          text: 'Excluir',
+          style: 'destructive',
+          onPress: () => {
+
+            setMembers(updatedItems);
+            console.log("Usuário removido com sucesso!");
+          },
+        },
+      ],
+    );
   }
 
   return (
