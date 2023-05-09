@@ -12,11 +12,14 @@ export default function App() {
   const [name, setName] = useState('');
   const [members, setMembers] = useState<string[]>([]);
 
-  const usuarioExistente = members.find(m => m === name);
+  const duplicateMember = members.find(m => m === name);
 
   function handleSubmit() {
-    if (usuarioExistente) {
-      Alert.alert("Opsss! Usuário já cadastrado", "Esse usuário já existe na lista!");
+    if (name === '') {
+      Alert.alert("Nome inválido", "O nome do usuário deve ser informado!");
+    } else if (duplicateMember) {
+      Alert.alert("Opsss!", "Esse usuário já existe na lista");
+
     } else {
       setMembers(parms => [name, ...parms]);
 
