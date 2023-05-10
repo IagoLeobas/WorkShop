@@ -91,6 +91,7 @@ export default function App() {
             </TouchableOpacity>
           </View>
         ))
+        // operador ternário para verificar se n° de membros é maior que zero
       ) : (
         <Text key={4} style={styled.paragraph}>
           Ninguém chegou no evento ainda? Adicione participantes a sua lista de
