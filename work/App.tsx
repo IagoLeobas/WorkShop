@@ -12,8 +12,8 @@ export default function App() {
   const [name, setName] = useState('');
   const [members, setMembers] = useState<string[]>([]);
 
-  /* Função 'find' procura o primeiro 'member' da lista trazendo 
-  aquele que é estritamente igual ao informado no input de nome */
+  /* Função 'find' procura o primeiro 'member' da lista trazendo aquele que
+   é estritamente igual ao informado no input de nome e armazena na variável */
   const duplicateMember = members.find(m => m === name);
 
   // Salva Membro
